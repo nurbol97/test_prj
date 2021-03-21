@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:test_prj/helpers/sizes_helpers.dart';
 
 import 'package:test_prj/providers/base_items_provider.dart';
 

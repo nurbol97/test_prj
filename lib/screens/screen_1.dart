@@ -13,16 +13,15 @@ class Screen1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          backgroundColor: Colors.grey,
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(100),
-            child: AppBar(
+        home: SafeArea(
+          child: Scaffold(
+            backgroundColor: Colors.grey,
+            appBar: AppBar(
               elevation: 0,
               backgroundColor: Colors.white,
               flexibleSpace: Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 30.0),
+                  padding: const EdgeInsets.only(top: 10.0),
                   child: Text(
                     'Title',
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
@@ -40,25 +39,23 @@ class Screen1 extends StatelessWidget {
                     }),
               ],
             ),
-          ),
-          body: Column(
-            children: [
-              Flexible(
-                flex: 1,
-                child: Container(
-                  color: Colors.white,
-                  child: Text(
-                    'Lorem ipsum dolor sit amet, '
-                    'consectetur adipiscing elit. '
-                    '\nDuis convallis justo non nisi placerat maximus.',
-                    maxLines: 5,
-                    style: TextStyle(fontSize: 20),
+            body: Column(
+              children: [
+                Container(
+                  child: Container(
+                    color: Colors.white,
+                    child: Text(
+                      'Lorem ipsum dolor sit amet, '
+                      'consectetur adipiscing elit. '
+                      '\nDuis convallis justo non nisi placerat maximus.',
+                      maxLines: 5,
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
-              ),
-              Flexible(
-                flex: 3,
-                child: CupertinoScrollbar(
+                Flexible(
+                  flex: 3,
+                  child: CupertinoScrollbar(
                     controller: _scrollController,
                     isAlwaysShown: true,
                     child: ListView.builder(
@@ -70,29 +67,31 @@ class Screen1 extends StatelessWidget {
                           style: TextStyle(fontSize: 28),
                         ),
                       ),
-                    )),
-              ),
-            ],
-          ),
-          bottomNavigationBar: Container(
-            height: 100,
-            decoration: const BoxDecoration(color: Colors.white),
-            child: Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  onPrimary: Colors.white,
-                  primary: Color(0xFFDB00FF),
-                  onSurface: Colors.grey,
-                  minimumSize: const Size(150, 50),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
+                    ),
+                  ),
                 ),
-                onPressed: () {},
-                child: const Text(
-                  'TEST BUTTON',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
+              ],
+            ),
+            bottomNavigationBar: Container(
+              height: 100,
+              decoration: const BoxDecoration(color: Colors.white),
+              child: Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    onPrimary: Colors.white,
+                    primary: Color(0xFFDB00FF),
+                    onSurface: Colors.grey,
+                    minimumSize: const Size(150, 50),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'TEST BUTTON',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),

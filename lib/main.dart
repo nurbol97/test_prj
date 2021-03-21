@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +28,11 @@ void _run() => runApp(
             lazy: false,
           ),
         ],
-        child: const App(),
+        // child: const App(),
+
+        child: DevicePreview(
+          builder: (context) => App(),
+          //enabled: !kReleaseMode,
+        ),
       ),
     );
